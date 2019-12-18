@@ -1,49 +1,975 @@
 <!doctype html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>reveal.js</title>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<link rel="stylesheet" href="css/reset.css">
-		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/black.css">
+	<title>magic JS</title>
 
-		<!-- Theme used for syntax highlighting of code -->
-		<link rel="stylesheet" href="lib/css/monokai.css">
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/black.css">
 
-		<!-- Printing and PDF exports -->
-		<script>
-			var link = document.createElement( 'link' );
-			link.rel = 'stylesheet';
-			link.type = 'text/css';
-			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
-			document.getElementsByTagName( 'head' )[0].appendChild( link );
-		</script>
-	</head>
-	<body>
-		<div class="reveal">
-			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
-			</div>
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="lib/css/monokai.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<!--slide1 - name-->
+			<section>
+				<h1>magic JS</h1>
+			</section>
+
+			<!--slide2 - comics-->
+			<section>
+				<section>
+					<img class="exampleImg" src="img/example1.png" alt="example1">
+				</section>
+				<section>
+					<img class="exampleImg" src="img/example2.png" alt="example2">
+				</section>
+				<section>
+					<img class="exampleImg" src="img/example3.png" alt="example3">
+				</section>
+				<section>
+					<img class="exampleImg" src="img/example4.png" alt="example4">
+				</section>
+			</section>
+
+			<!--slide3 - dynamic typing-->
+			<section>
+				<h2>Dynamic typing</h2>
+				<pre><code class="hljs javascript">
+	let foo =  42;   // foo is now a number
+		foo = 'bar'; // foo is now a string
+		foo =  true; // foo is now a boolean
+					</code></pre>
+			</section>
+
+			<!--slide4 - types list-->
+			<section>
+				<h2>Data types</h2>
+				<ul>
+					<li>Six data types that are primitives:</li>
+					<ul>
+						<li>Boolean</li>
+						<li>Null</li>
+						<li>Undefined</li>
+						<li>Number</li>
+						<li>String</li>
+						<li>Symbol</li>
+					</ul>
+					<br>
+					<li>and Object</li>
+				</ul>
+			</section>
+
+			<!--slide5 - types-->
+			<section>
+				<section>
+					<h2>Boolean</h2>
+					<pre><code class="hljs javascript">
+	let foo = true;    // foo is true
+		foo = 3 > 2;   // foo is true
+		foo = 2 == 12; // foo is false
+						</code></pre>
+				</section>
+				<section>
+					<h2>Null</h2>
+					<pre><code class="hljs javascript">
+	let temp = null;
+	typeof(temp);      // object
+	console.log(temp); // null
+					</code></pre>
+				</section>
+				<section>
+					<h2>Undefined</h2>
+					<pre><code class="hljs javascript">
+	let temp;
+	typeof(temp);      // undefined
+	console.log(temp); // undefined
+						</code></pre>
+				</section>
+				<section>
+					<h2>Number</h2>
+					<pre><code class="hljs javascript">
+	let num = 12;      // number
+		num = 859;     // number
+		num = 8 * 9;   // number
+		num = 8 / 0;   // Infinity
+		num = -8 / 0;  // -Infinity
+		num = 8 / 'a'; // NaN
+						</code></pre>
+				</section>
+				<section>
+					<h2>String</h2>
+					<pre><code class="hljs javascript">
+	let name = 'Tim';                // string
+		name = "Tim";                // string
+		name = "He is called 'Tim'"; // string
+						</code></pre>
+				</section>
+				<section>
+					<h2>Symbol</h2>
+					<pre><code class="hljs javascript">
+	let id = Symbol();      // symbol
+	let id = Symbol("id");  // symbol
+
+	let id1 = Symbol("id");
+	let id2 = Symbol("id");
+	id1 === id2;            // false
+						</code></pre>
+				</section>
+				<section>
+					<h2>Object</h2>
+					<pre><code class="hljs javascript">
+	let user = new Object(); // object
+	let user = {};           // object
+
+	// object
+	let user = {
+		name: "Tim",
+		age: 30
+	};
+							</code></pre>
+				</section>
+			</section>
+
+			<!--slide6 - type conversions list-->
+			<section>
+				<section>
+					<h2>Type Conversions</h2>
+					<ul>
+						<li>ToBoolean</li>
+						<li>ToNumber</li>
+						<li>ToString</li>
+						<li>ToObject</li>
+						<li>ToPrimitive</li>
+					</ul>
+				</section>
+			</section>
+
+			<!--slide7 - boolean conversion-->
+			<section>
+				<section>
+					<h2>Boolean Conversion</h2>
+					<pre><code class="hljs javascript">
+	Boolean(1);       // true
+	Boolean(0);       // false
+
+	Boolean("hello"); // true
+	Boolean("");      // false
+
+	Boolean("0");     // true
+	Boolean(" ");     // spaces, also true 
+			  // (any non-empty string is true)
+							</code></pre>
+				</section>
+				<section>
+					<table>
+						<thead>
+							<tr>
+								<th>Argument Type</th>
+								<th>Result</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>Undefined</td>
+								<td>false</td>
+							</tr>
+							<tr>
+								<td>Null</td>
+								<td>false</td>
+							</tr>
+							<tr>
+								<td>Boolean</td>
+								<td>The result equals the input argument (no conversion).</td>
+							</tr>
+							<tr>
+								<td>Number</td>
+								<td>The result is false if the argument is +0, −0, or NaN; otherwise the result is true.
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					<p>...</p>
+				</section>
+				<section>
+					<p>...</p>
+					<table>
+						<thead>
+							<tr>
+								<th>Argument Type</th>
+								<th>Result</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>String</td>
+								<td>The result is false if the argument is the empty String (its length is zero);
+									otherwise the result is true.</td>
+							</tr>
+							<tr>
+								<td>Object</td>
+								<td>true</td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+			</section>
+
+			<!--slide8 - numeric conversion-->
+			<section>
+				<section>
+					<h2>Numeric Conversion</h2>
+					<pre><code class="hljs javascript">
+	alert( "6" / "2" );         // 3
+	// strings are converted to numbers
+
+	let str = "123";            // string "123"
+	let num = Number(str);      // number 123
+
+	let age = Number("number"); // NaN, conversion failed
+
+	let x = Number("   -9.6");  // -9.6
+	x = Number("9.6 number");   // 9.6
+							</code></pre>
+				</section>
+				<section>
+					<table>
+						<thead>
+							<tr>
+								<th>Argument Type</th>
+								<th>Result</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>Undefined</td>
+								<td>NaN</td>
+							</tr>
+							<tr>
+								<td>Null</td>
+								<td>+0</td>
+							</tr>
+							<tr>
+								<td>Boolean</td>
+								<td>The result is 1 if the argument is true. The result is +0 if the argument is false.
+								</td>
+							</tr>
+							<tr>
+								<td>Number</td>
+								<td>The result equals the input argument (no conversion).</td>
+							</tr>
+						</tbody>
+					</table>
+					<p>...</p>
+				</section>
+				<section>
+					<p>...</p>
+					<table class="smallerFontSizeTable">
+						<thead>
+							<tr>
+								<th>Argument Type</th>
+								<th>Result</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>String</td>
+								<td>
+									<p>reads a string character by character<p>
+											<ul>
+												<li>empty or contains only white space is converted to +0</li>
+												<li>whitespace is ignored (' ', '\t', '\n', '\v', '\f', '\r')</li>
+												<li>unary +/- in the zero position is converted to +/-</li>
+												<li>DecimalDigits is converted to DecimalDigits</li>
+												<li>one point is converted to floating point</li>
+												<li>none of these are converted to NaN</li>
+												<li>if non-convertible characters are found in the middle of the line,
+													then they and all subsequent ones are skipped</li>
+											</ul>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					<p>...</p>
+				</section>
+				<section>
+					<p>...</p>
+					<table>
+						<thead>
+							<tr>
+								<th>Argument Type</th>
+								<th>Result</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>Object</td>
+								<td>
+									<p>Apply the following steps:<p>
+											<ol>
+												<li>Let primValue be ToPrimitive(input argument, hint Number).</li>
+												<li>Return ToNumber(primValue).</li>
+											</ol>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+			</section>
+
+			<!--slide9 - string conversion-->
+			<section>
+				<section>
+					<h2>String Conversion</h2>
+					<pre><code class="hljs javascript">
+	let value = true;
+	console.log(typeof value); // boolean
+
+	value = String(value);     // now value is a string "true"
+	console.log(typeof value); // string
+							</code></pre>
+				</section>
+				<section>
+					<table>
+						<thead>
+							<tr>
+								<th>Argument Type</th>
+								<th>Result</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>Undefined</td>
+								<td>"undefined"</td>
+							</tr>
+							<tr>
+								<td>Null</td>
+								<td>"null"</td>
+							</tr>
+							<tr>
+								<td>Boolean</td>
+								<td>
+									<ul>
+										<li>If the argument is true, then the result is "true".</li>
+										<li>If the argument is false, then the result is "false".</li>
+									</ul>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					<p>...</p>
+				</section>
+				<section>
+					<p>...</p>
+					<table class="smallerFontSizeTable">
+						<thead>
+							<tr>
+								<th>Argument Type</th>
+								<th>Result</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>Number</td>
+								<td>
+									<ul>
+										<li>NaN, return the String "NaN"</li>
+										<li>infinity, return the String "Infinity"</li>
+										<li>+0 or −0, return the String "0"</li>
+										<li>If x is any Number value other than −0, then ToNumber(ToString(x)) is
+											exactly the same Number value as x</li>
+									</ul>
+								</td>
+							</tr>
+							<tr>
+								<td>String</td>
+								<td>Return the input argument (no conversion)</td>
+							</tr>
+							<tr>
+								<td>Object</td>
+								<td>Apply the following steps:
+									<ul>
+										<li>Let primValue be ToPrimitive(input argument, hint Number).</li>
+										<li>Return ToNumber(primValue).</li>
+									</ul>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+			</section>
+
+			<!--slide10 - object conversion-->
+			<section>
+				<section>
+					<h2>Object Conversion</h2>
+					<pre><code class="hljs javascript">
+	Object(true);     // Boolean {true}
+			  // __proto__: Boolean
+			  // [[PrimitiveValue]]: true
+
+	Object('str');    //String {"str"}
+			  // 0: "s"
+			  // 1: "t"
+			  // 2: "r"
+			  // length: 6
+			  // __proto__: String
+			  // [[PrimitiveValue]]: "string"
+						</code></pre>
+				</section>
+				<section>
+					<table>
+						<thead>
+							<tr>
+								<th>Argument Type</th>
+								<th>Result</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>Undefined</td>
+								<td>Throw a TypeError exception.</td>
+							</tr>
+							<tr>
+								<td>Null</td>
+								<td>Throw a TypeError exception.</td>
+							</tr>
+							<tr>
+								<td>Boolean</td>
+								<td>Create a new Boolean object whose [[PrimitiveValue]] internal property is set to the
+									value of the argument.</td>
+							</tr>
+						</tbody>
+					</table>
+					<p>...</p>
+				</section>
+				<section>
+					<p>...</p>
+					<table class="smallerFontSizeTable">
+						<thead>
+							<tr>
+								<th>Argument Type</th>
+								<th>Result</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>Number</td>
+								<td>Create a new Number object whose [[PrimitiveValue]] internal property is set to the
+									value of the argument.</td>
+							</tr>
+							<tr>
+								<td>String</td>
+								<td> Create a new String object whose [[PrimitiveValue]] internal property is set to the
+									value of the argument.</td>
+							</tr>
+							<tr>
+								<td>Object</td>
+								<td>The result is the input argument (no conversion).</td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+			</section>
+
+			<!--slide11 - unary operators-->
+			<section>
+				<section>
+					<h2>Conversion using unary operators</h2>
+					<ul>
+						<li>Unary + Operator</li>
+						<li>Unary - Operator</li>
+						<li>Bitwise NOT Operator ( ~ )</li>
+						<li>Logical NOT Operator ( ! )</li>
+						<li>Increment</li>
+						<li>Decrement</li>
+					</ul>
+				</section>
+				<section>
+					<table>
+						<thead>
+							<tr>
+								<th>Argument Type</th>
+								<th>+</th>
+								<th>-</th>
+								<th>~</th>
+								<th>!</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>Undefined</td>
+								<td>NaN</td>
+								<td>NaN</td>
+								<td>-1</td>
+								<td>true</td>
+							</tr>
+							<tr>
+								<td>Null</td>
+								<td>0</td>
+								<td>-0</td>
+								<td>-1</td>
+								<td>true</td>
+							</tr>
+							<tr>
+								<td>Boolean (true)</td>
+								<td>1</td>
+								<td>-1</td>
+								<td>-2</td>
+								<td>false</td>
+							</tr>
+							<tr>
+								<td>Boolean (false)</td>
+								<td>0</td>
+								<td>-0</td>
+								<td>-1</td>
+								<td>true</td>
+							</tr>
+							<tr>
+								<td>Number (15)</td>
+								<td>15</td>
+								<td>-15</td>
+								<td>-16</td>
+								<td>false</td>
+							</tr>
+							<tr>
+								<td>Number (0)</td>
+								<td>0</td>
+								<td>-0</td>
+								<td>-1</td>
+								<td>true</td>
+							</tr>
+							<tr>
+								<td>String("15")</td>
+								<td>15</td>
+								<td>-15</td>
+								<td>-16</td>
+								<td>false</td>
+							</tr>
+							<tr>
+								<td>String("str")</td>
+								<td>NaN</td>
+								<td>NaN</td>
+								<td>-1</td>
+								<td>false</td>
+							</tr>
+							<tr>
+								<td>Object</td>
+								<td>NaN</td>
+								<td>NaN</td>
+								<td>-1</td>
+								<td>false</td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+				<section>
+					<table class="smallerFontSizeTable">
+						<thead>
+							<tr>
+								<th>Argument Type</th>
+								<th>Conversion</th>
+								<th>Increment</th>
+								<th>Decrement</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>Undefined</td>
+								<td>NaN</td>
+								<td>NaN</td>
+								<td>NaN</td>
+							</tr>
+							<tr>
+								<td>Null</td>
+								<td>0</td>
+								<td>1</td>
+								<td>-1</td>
+							</tr>
+							<tr>
+								<td>Boolean (true)</td>
+								<td>1</td>
+								<td>2</td>
+								<td>0</td>
+							</tr>
+							<tr>
+								<td>Boolean (false)</td>
+								<td>0</td>
+								<td>1</td>
+								<td>-1</td>
+							</tr>
+							<tr>
+								<td>Number (15)</td>
+								<td>15</td>
+								<td>16</td>
+								<td>14</td>
+							</tr>
+							<tr>
+								<td>Number (0)</td>
+								<td>0</td>
+								<td>1</td>
+								<td>-1</td>
+							</tr>
+							<tr>
+								<td>String("15")</td>
+								<td>15 (number)</td>
+								<td>16 (number)</td>
+								<td>14 (number)</td>
+							</tr>
+							<tr>
+								<td>String("str")</td>
+								<td>NaN</td>
+								<td>NaN</td>
+								<td>NaN</td>
+							</tr>
+							<tr>
+								<td>Object</td>
+								<td>NaN</td>
+								<td>NaN</td>
+								<td>NaN</td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+			</section>
+
+			<!--slide12 - arithmetic operators-->
+			<section>
+				<section>
+					<h2>Arithmetic operators</h2>
+					<ul>
+						<li>Addition (+)</li>
+						<li>Subtraction (-)</li>
+						<li>Division (/)</li>
+						<li>Multiplication (*)</li>
+						<li>Remainder (%)</li>
+						<li>Exponentiation (**)</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Addition (+)</h3>
+					<pre><code class="hljs javascript">
+	// Number + Number -> addition
+	1 + 2          // 3
+
+	// Boolean + Number -> addition
+	true + 1       // 2
+
+	// Boolean + Boolean -> addition
+	false + false  // 0
+
+	// Number + String -> concatenation
+	5 + 'foo'      // "5foo"
+
+	// String + Boolean -> concatenation
+	'foo' + false  // "foofalse"
+						</code></pre>
+				</section>
+				<section>
+					<h3>Subtraction (-)</h3>
+					<pre><code class="hljs javascript">
+	5 - 3     // 2
+	3 - 5     // -2
+	'foo' - 3 // NaN
+						</code></pre>
+				</section>
+				<section>
+					<h3>Division (/)</h3>
+					<pre><code class="hljs javascript">
+	1 / 2      // returns 0.5 in JavaScript
+	1 / 2      // returns 0 in Java 
+	// (neither number is explicitly a floating point number)
+
+	1.0 / 2.0  // returns 0.5 in both JavaScript and Java
+
+	2.0 / 0    // returns Infinity in JavaScript
+	2.0 / 0.0  // returns Infinity too
+	2.0 / -0.0 // returns -Infinity in JavaScript
+						</code></pre>
+				</section>
+				<section>
+					<h3>Multiplication (*)</h3>
+					<pre><code class="hljs javascript">
+	2 * 2               // 4
+	-2 * 2              // -4
+	Infinity * 0        // NaN
+	Infinity * Infinity // Infinity
+	'foo' * 2           // NaN
+						</code></pre>
+				</section>
+				<section>
+					<h3>Remainder (%)</h3>
+					<pre><code class="hljs javascript">
+	12 % 5   // 2
+	-1 % 2   // -1
+	1 % -2   // 1
+	NaN % 2  // NaN
+	1 % 2    // 1
+	2 % 3    // 2
+	-4 % 2   // -0
+	5.5 % 2  // 1.5
+						</code></pre>
+				</section>
+				<section>
+					<h3>Exponentiation (**)</h3>
+					<pre><code class="hljs javascript">
+	2 ** 3         // 8
+	3 ** 2         // 9
+	3 ** 2.5       // 15.588457268119896
+	10 ** -1       // 0.1
+	NaN ** 2       // NaN
+
+	2 ** 3 ** 2    // 512
+	2 ** (3 ** 2)  // 512
+	(2 ** 3) ** 2  // 64
+	-(2 ** 2)      // -4
+	(-2) ** 2      // 4
+						</code></pre>
+				</section>
+			</section>
+
+			<!--slide13 - binary bitwise operators-->
+			<section>
+				<section>
+					<h3>Binary bitwise operators</h3>
+					<ul>
+						<li>& (Bitwise AND)</li>
+						<li>| (Bitwise OR)</li>
+						<li>^ (Bitwise XOR)</li>
+					</ul>
+				</section>
+				<section>
+					<table class="smallerFontSizeTable">
+						<thead>
+							<tr>
+								<th>x</th>
+								<th>y</th>
+								<th>x & y</th>
+								<th>x | y</th>
+								<th>x ^ y</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>Undefined</td>
+								<td>Undefined</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+							</tr>
+							<tr>
+								<td>Null</td>
+								<td>Null</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+							</tr>
+							<tr>
+								<td>Boolean (true)</td>
+								<td>Boolean (true)</td>
+								<td>1</td>
+								<td>1</td>
+								<td>0</td>
+							</tr>
+							<tr>
+								<td>Boolean (false)</td>
+								<td>Boolean (false)</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+							</tr>
+							<tr>
+								<td>Boolean (true)</td>
+								<td>Boolean (false)</td>
+								<td>0</td>
+								<td>1</td>
+								<td>1</td>
+							</tr>
+							<tr>
+								<td>Number (15)</td>
+								<td>Number (15)</td>
+								<td>15</td>
+								<td>15</td>
+								<td>0</td>
+							</tr>
+							<tr>
+								<td>Number (0)</td>
+								<td>Number (0)</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+							</tr>
+							<tr>
+								<td>Number (15)</td>
+								<td>Number (0)</td>
+								<td>0</td>
+								<td>15</td>
+								<td>15</td>
+							</tr>
+							<tr>
+								<td>String("15")</td>
+								<td>String("15")</td>
+								<td>15</td>
+								<td>15</td>
+								<td>0</td>
+							</tr>
+							<tr>
+								<td>String("str")</td>
+								<td>String("str")</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+							</tr>
+							<tr>
+								<td>String("15")</td>
+								<td>String("str")</td>
+								<td>0</td>
+								<td>15</td>
+								<td>15</td>
+							</tr>
+							<tr>
+								<td>Object</td>
+								<td>Object</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+			</section>
+
+			<!--slide14 - implicit conversions-->
+			<section>
+				<section>
+					<h2>and</h2>
+					<ul>
+						<li>comparison operators (>, <, <=,>=)</li>
+						<li>non-strict equality operator == (including !=)</li>
+					</ul>
+				</section>
+			</section>
+
+			<!--slide15 - magic-->
+			<section>
+				<section>
+					<h2>Dynamic typing<br> + <br>type conversions<br> = <br>magic</h2>
+					<img class="exampleImg" src="img/magic.jpg" alt="magic">
+				</section>
+			</section>
+
+			<!--slide16 - first img-->
+			<section>
+				<section>
+					<img class="exampleImg" src="img/example1.png" alt="example1">
+				</section>
+				<section>
+					<pre><code class="hljs javascript">
+	0 == "0";     // true
+	// number == string - wtf?
+	
+	Number("0");  // 0
+	// number == number - ok
+	
+	0 == 0;       // true
+						</code></pre>
+				</section>
+			</section>
+
+			<!--slide16 second img-->
+			<section>
+				<section>
+					<img class="exampleImg" src="img/example2.png" alt="example2">
+				</section>
+				<section>
+					<pre><code class="hljs javascript">
+	0 == [];        // true
+	// number == object - wtf?
+
+	[].toString();  // ""
+	// number == string - wtf?
+	
+	Number('');     // 0
+	// number == number - ok
+	
+	0 == 0;         // true
+						</code></pre>
+				</section>
+			</section>
+
+			<!--slide17 - fourth img-->
+			<section>
+				<section>
+					<img class="exampleImg" src="img/example4.png" alt="example4">
+				</section>
+				<section>
+					<pre><code class="hljs javascript">
+	"0" == [];      // false
+	// string == object - wtf?
+
+	[].toString();  // ""
+	// string == string - ok
+	
+	"0" == "";      // false
+		</code></pre>
+				</section>
+			</section>
+
+			<!--slide18 - conclusion-->
+			<section>
+				<section>
+					<h2>Conclusion</h2>
+					<h3>strict equality</h3>
+					<pre><code class="hljs javascript">
+	0 === "0"   // false
+	0 === []    // false
+	"0" === []  // false
+					</code></pre>
+				</section>
+			</section>
 		</div>
+	</div>
 
-		<script src="js/reveal.js"></script>
+	<script src="js/reveal.js"></script>
 
-		<script>
-			// More info about config & dependencies:
-			// - https://github.com/hakimel/reveal.js#configuration
-			// - https://github.com/hakimel/reveal.js#dependencies
-			Reveal.initialize({
-				dependencies: [
-					{ src: 'plugin/markdown/marked.js' },
-					{ src: 'plugin/markdown/markdown.js' },
-					{ src: 'plugin/notes/notes.js', async: true },
-					{ src: 'plugin/highlight/highlight.js', async: true }
-				]
-			});
-		</script>
-	</body>
+	<script>
+		// More info about config & dependencies:
+		// - https://github.com/hakimel/reveal.js#configuration
+		// - https://github.com/hakimel/reveal.js#dependencies
+		Reveal.initialize({
+			dependencies: [{
+					src: 'plugin/markdown/marked.js'
+				},
+				{
+					src: 'plugin/markdown/markdown.js'
+				},
+				{
+					src: 'plugin/notes/notes.js',
+					async: true
+				},
+				{
+					src: 'plugin/highlight/highlight.js',
+					async: true
+				}
+			]
+		});
+	</script>
+</body>
+
 </html>
